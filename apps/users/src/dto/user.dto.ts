@@ -19,3 +19,14 @@ export class RegisterDto {
   password: string;
 }
 
+@InputType()
+export class LoginDto {
+  @Field()
+  @IsNotEmpty({ message: 'Email is required' })
+  @IsEmail({}, { message: 'Email is invalid' })
+  email: string;
+
+  @Field()
+  @IsNotEmpty({ message: 'Password is required' })
+  password: string;
+}
