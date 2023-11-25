@@ -1,14 +1,15 @@
-import { JwtService } from '@nestjs/jwt';
+// import { JwtService } from '@nestjs/jwt';
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+// import { ConfigService } from '@nestjs/config';
 import { LoginDto, RegisterDto } from './dto/user.dto';
+import { PrismaService } from 'prisma/prisma.service';
 
 @Injectable()
 export class UsersService {
   constructor(
-    private readonly jwtService: JwtService,
-    // private readonly prisma : PrismaSer
-    private readonly configService: ConfigService,
+    // private readonly jwtService: JwtService,
+    private readonly prisma: PrismaService,
+    // private readonly configService: ConfigService,
   ) {}
 
   // register service
@@ -47,15 +48,6 @@ export class UsersService {
   // get all users service
 
   async getAllUsers() {
-    // const users = await this.prisma.user.findMany();
-    const users = [
-      {
-        id: '1234',
-        name: 'test',
-        email: 'test@g.com',
-        password: '1234567f',
-      },
-    ];
-    return users;
+    return await this.prisma.user.findMany();
   }
 }

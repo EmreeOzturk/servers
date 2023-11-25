@@ -1,8 +1,8 @@
 // import { UseFilters } from '@nestjs/common';
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Resolver, Query } from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { RegisterDto } from './dto/user.dto';
-import { BadRequestException, Query } from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 import { RegisterResponse } from './types/user.types';
 import { User } from './entities/user.entity';
 
@@ -22,7 +22,6 @@ export class UserResolver {
     return { user };
   }
 
-  //@ts-expect-error @ts-ignore
   @Query(() => [User])
   async getAllUsers() {
     const users = await this.usersService.getAllUsers();
