@@ -48,7 +48,14 @@ export class UsersService {
 
   async getAllUsers() {
     // const users = await this.prisma.user.findMany();
-    const users = [];
+    const users = [
+      {
+        id: '1234',
+        name: 'test',
+        email: 'test@g.com',
+        password: '1234567f',
+      },
+    ];
     return users;
   }
 }
