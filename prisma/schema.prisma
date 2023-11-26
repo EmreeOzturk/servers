@@ -13,7 +13,7 @@ enum Role {
 }
 
 model Avatars {
-  id        String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   public_id String
   url       String
   user      User     @relation(fields: [userId], references: [id])
@@ -23,7 +23,7 @@ model Avatars {
 }
 
 model User {
-  id        String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   email     String   @unique
   name      String
   password  String

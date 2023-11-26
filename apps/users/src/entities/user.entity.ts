@@ -14,6 +14,12 @@ export class Avatars {
 
   @Field()
   userId: string;
+
+  @Field({ nullable: true })
+  createdAt?: Date;
+
+  @Field({ nullable: true })
+  updatedAt?: Date;
 }
 
 @ObjectType()
@@ -26,6 +32,15 @@ export class User {
 
   @Field()
   email: string;
+
+  @Field({ nullable: true })
+  role?: string;
+
+  @Field({ nullable: true })
+  createdAt?: Date;
+
+  @Field({ nullable: true })
+  updatedAt?: Date;
 
   @Field()
   password: string;
