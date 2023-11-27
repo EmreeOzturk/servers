@@ -34,3 +34,14 @@ export class LoginDto {
   @IsNotEmpty({ message: 'Password is required' })
   password: string;
 }
+
+@InputType()
+export class ActivationDto {
+  @Field()
+  @IsNotEmpty({ message: 'Activation code is required' })
+  activationCode: string;
+
+  @Field()
+  @IsNotEmpty({ message: 'Activation token is required' })
+  activationToken: string;
+}
